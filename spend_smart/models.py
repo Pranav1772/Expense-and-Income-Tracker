@@ -16,7 +16,6 @@ class Expense(models.Model):
         ordering: ['-date']
     
 class Category(models.Model):
-    user = models.OneToOneField(to=User, on_delete=models.CASCADE)
     name=models.CharField(max_length=255)
     def __str__(self):
         return self.name
@@ -37,7 +36,6 @@ class Income(models.Model):
         ordering: ['-date']
     
 class Source(models.Model):
-    user = models.OneToOneField(to=User, on_delete=models.CASCADE)
     name=models.CharField(max_length=255)
     class Meta:
         verbose_name_plural = 'Sources'
