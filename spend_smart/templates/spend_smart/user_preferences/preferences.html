@@ -1,0 +1,40 @@
+{% extends "spend_smart/base.html" %} {% load static %} {% block title %}User Preferences{% endblock title %} {% block page %}
+<h5 class="my-md-3 my-lg-3 my-2">
+    <span class="text-muted fw-light"> Prefered </span>
+    Currency
+</h5>
+{% endblock page %} {% block content %}
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Basic Layout</h5>
+            <small class="text-muted float-end">Default label</small>
+        </div>
+        <div class="card-body">            
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-company">Choose Currency</label>
+                    <div class="col-sm-10">
+                        <form action="{% url "preferences" %}" method="post">
+                            {% csrf_token %}
+                            <div class="input-group">        
+                                    <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" name='currency'>
+                                    <option selected="">Choose...</option>
+                                    {% for currency in currencies %}
+                                    <option value="{{currency.name}} - {{currency.value}}" {% if user_preference.currency == currency.name|add:' - '|add:currency.value %}
+                                    selected
+                                {% endif %}
+                                
+                                >{{currency.name}} - {{currency.value}}</option>
+                                    {% endfor %}
+                                </select>
+                                <button type="submit" class="btn btn-outline-primary" type="button">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

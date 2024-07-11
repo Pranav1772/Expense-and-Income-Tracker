@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="{% static "spend_smart/assets" %}" data-template="vertical-menu-template-free">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+        <title>Spend Smart</title>
+
+        <meta name="description" content="" />
+
+       
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{% static "spend_smart/assets/img/favicon/favicon.ico" %}" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{% static "spend_smart/assets/vendor/fonts/boxicons.css" %}" />
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="{% static "spend_smart/assets/vendor/css/core.css" %}" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="{% static "spend_smart/assets/vendor/css/theme-default.css" %}" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="{% static "spend_smart/assets/css/demo.css" %}" />
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="{% static "spend_smart/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" %}" />
+  <link rel="stylesheet" href="{% static "spend_smart/assets/vendor/libs/apex-charts/apex-charts.css" %}" />
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'spend_smart/assets/vendor/css/pages/page-auth.css' %}">
+
+  <!-- Helpers -->
+  <script src="{% static "spend_smart/assets/vendor/js/helpers.js" %}"></script>
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="{% static "assets/js/config.js" %}"></script>
+  <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    .container-center {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+    </head>
+
+    <body>
+      <!-- Content -->      
+      <div class="container-center">
+        <div class="container my-1">
+            <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+              <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                <h1 class="display-4 fw-bold lh-1 text-body-emphasis">SpendSmart : Expense and Income Tracker</h1>
+                <div class="jumbotron">                    
+                    <p class="lead">Welcome to our Expense and Income Tracker, a comprehensive solution designed to help you manage your finances with ease and precision.</p>                    
+                    <h4>Features:</h4>
+                    <ul>
+                        <li ><strong>User-Friendly Interface:</strong> Built with HTML, CSS, and Bootstrap for a responsive and intuitive user experience.</li>
+                        <li ><strong>Robust Backend:</strong> Powered by Django and PostgreSQL, ensuring secure and reliable data management.</li>
+                        <li ><strong>Dynamic Tables:</strong> Utilize the DataTables JS plugin for seamless data presentation and manipulation.</li>
+                        <li ><strong>Visual Insights:</strong> View your financial trends with a detailed pie chart of your expenses and incomes from the last six months, powered by Chart.js.</li>
+                        <li ><strong>Dashboard Overview:</strong> Get a quick glance at your total expenses for the current month right on the dashboard.</li>
+                        <li ><strong>Profile Management:</strong> Easily manage your user profile with options to edit and delete existing income and expense entries.</li>
+                        <li ><strong>snet Admin Template:</strong> Utilized the Snet admin template, which facilitated faster frontend development with its predefined user elements.</li>
+                    </ul>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                  <a href='{% url "login" %}' type="button" class="btn rounded-pill btn-outline-primary  px-4 me-md-2 fw-bold">Live Demo</a>
+                  <a href='#' type="button" class="btn rounded-pill btn-outline-secondary  px-4">GitHub</a>
+                </div>
+              </div>
+              <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+                  <img class="rounded-lg-3" src="{% static "spend_smart/assets/img/elements/project_img.png" %}" alt="" width="720">
+              </div>
+            </div>
+          </div>
+    </div>
+      <!-- / Content -->
+        <script src="{% static "spend_smart/assets/vendor/libs/jquery/jquery.js" %}"></script>
+        <script src="{% static "spend_smart/assets/vendor/libs/popper/popper.js" %}"></script>
+        <script src="{% static "spend_smart/assets/vendor/js/bootstrap.js" %}"></script>
+        <script src="{% static "spend_smart/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js" %}"></script>
+        <script src="{% static "spend_smart/assets/vendor/js/menu.js" %}"></script>
+      
+        <!-- endbuild -->
+      
+        <!-- Vendors JS -->
+        <script src="{% static "spend_smart/assets/vendor/libs/apex-charts/apexcharts.js" %}"></script>
+      
+        <!-- Main JS -->
+        <script src="{% static "spend_smart/assets/js/main.js" %}"></script>
+      
+        <!-- Page JS -->
+        <script src="{% static "spend_smart/assets/js/dashboards-analytics.js" %}"></script>
+
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+    </body>
+</html>

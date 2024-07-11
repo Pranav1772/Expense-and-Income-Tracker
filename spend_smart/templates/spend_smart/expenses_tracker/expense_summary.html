@@ -1,0 +1,14 @@
+{% extends "spend_smart/base.html" %} {% load static %} {% block title %}Expense Summary{% endblock title %} {% block page %}
+
+<h5 class="my-md-3 my-lg-3 my-2">
+    <span class="text-muted fw-light"> Summary / </span>
+    Expense Summary
+</h5>
+
+{% endblock page %} {% block content %}
+<div id="chart-container" >
+    <canvas id="myChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static "spend_smart/assets/js/expense_suumary.js" %}" ></script>
+{% endblock content %}

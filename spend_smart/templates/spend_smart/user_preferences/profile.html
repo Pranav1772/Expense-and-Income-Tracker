@@ -1,0 +1,81 @@
+{% extends "spend_smart/base.html" %} {% load static %} {% block title %}Profile{% endblock title %} {% block page %}
+
+<h5 class="my-md-3 my-lg-3 my-2">Profile</h5>
+
+{% endblock page %} {% block content %}
+
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">User Details</h5>
+        </div>
+        <div class="card-body">
+            <form action="{% url "profile" %}" method='post'>
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="basic-default-name" placeholder="John Doe" value="{{user.username|default_if_none:""}}" name='username' disabled//></div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-company">First Name</label>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc." value="{{user.first_name|default_if_none:""}}" name='first_name'/></div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-company">Last Name</label>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc." value="{{user.last_name|default_if_none:""}}" name='last_name'/></div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-email">Email</label>
+                    <div class="col-sm-10">
+                        <div class="input-group input-group-merge"><input type="text" id="basic-default-email" class="form-control" placeholder="john.doe" aria-label="john.doe" value="{{user.email|default_if_none:""}}" aria-describedby="basic-default-email2" name='email'/></div>
+                        <div class="form-text">You can use letters, numbers &amp; periods</div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-email">Password</label>
+                    <div class="col-sm-10">
+                        <div class="input-group input-group-merge"><input type="text" id="basic-default-email" class="form-control" placeholder="john.doe" aria-label="john.doe" value="***********" aria-describedby="basic-default-email2" disabled/></div>
+                        <div class="form-text">You cant see the password, if you forgot password use
+                        <a href="{% url "forgot_password" %}" target="_blank" rel="noopener noreferrer">
+                            this 
+                        </a> 
+                        link to setup a new password</div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-company">Date joined</label>
+                    <div class="col-sm-10"><input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc." value="{{user.date_joined|default_if_none:""}}" disabled/></div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h5 class="card-header">Delete Account</h5>
+    <div class="card-body">
+        <div class="mb-3 col-12 mb-0">
+            <div class="alert alert-warning">
+                <h6 class="alert-heading mb-1">Are you sure you want to delete your account?</h6>
+                <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
+            </div>
+        </div>
+        <form id="formAccountDeactivation" onsubmit="return false">
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="accountActivation" id="accountActivation" />
+                <label class="form-check-label" for="accountActivation">I confirm my account deactivation</label>
+            </div>
+            <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

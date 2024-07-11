@@ -1,0 +1,120 @@
+{% extends "spend_smart/base.html" %} {% block title %}Dashboard{% endblock title %} {% block page %}
+
+<h5 class="my-md-3 my-lg-3 my-2">Dashboard</h5>
+
+{% endblock page %} {% block content %}
+
+<div class="row g-4">
+    <div class="col-xl-4 col-lg-6 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-2 pb-1">
+                    <div class="avatar me-2">
+                        <span class="avatar-initial rounded bg-label-danger"><i class="bx bx-rupee"></i></span>
+                    </div>
+                    <h4 class="ms-1 mb-0">{{total_expenses}}</h4>
+                </div>
+                <p class="mb-1">Total expense this month</p>
+                <p class="mb-0">
+                    <span class="fw-medium me-1">{{expense}}</span>
+                    <small class="text-muted">Expense entries this month</small>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-2 pb-1">
+                    <div class="avatar me-2">
+                        <span class="avatar-initial rounded bg-label-success"><i class="bx bx-wallet-alt"></i></span>
+                    </div>
+                    <h4 class="ms-1 mb-0">{{total_income}}</h4>
+                </div>
+                <p class="mb-1">Total income this month</p>
+                <p class="mb-0">
+                    <span class="fw-medium me-1">{{incomes}}</span>
+                    <small class="text-muted">Income entries this month</small>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-2 pb-1">
+                    <div class="avatar me-2">
+                        <span class="avatar-initial rounded bg-label-info"><i class="bx bxs-coin"></i></span>
+                    </div>
+                    <h4 class="ms-1 mb-0">{{currency}}</h4>
+                </div>
+                <p class="mb-1">Currently choosen currency</p>
+                <p class="mb-0">
+                    <small class="text-muted"></small>
+                    <span class="fw-medium me-1"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-6 col-lg-6 order-2 mb-4">
+        <div class="card h-100">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="card-title m-0 me-2">Expenses by category of current month</h5>
+            </div>
+            <div class="card-body">
+                <ul class="p-0 m-0">
+                    {% for expense in expenses_by_category %}
+                    <li class="d-flex mb-4 pb-1">
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="d-flex align-items-center mb-2 pb-1">
+                                <div class="avatar me-2">
+                                    <span class="avatar-initial rounded bg-label-danger"><i class="bx bx-rupee"></i></span>
+                                </div>
+                                <h5 class="mb-0">{{ expense.category }}</h5>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                                <h6 class="mb-0">{{ expense.total_amount }}</h6>
+                                <span class="text-muted">{{currency|slice:":3"}}</span>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-6 order-2 mb-4">
+        <div class="card h-100">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="card-title m-0 me-2">Incomes by source of current month</h5>
+            </div>
+            <div class="card-body">
+                <ul class="p-0 m-0">
+                    {% for income in income_by_source %}
+                    <li class="d-flex mb-4 pb-1">
+                        <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                <div class="d-flex align-items-center mb-2 pb-1">
+                                    <div class="avatar me-2">
+                                        <span class="avatar-initial rounded bg-label-success"><i class="bx bx-wallet-alt"></i></span>
+                                    </div>
+                                <h5 class="mb-0">{{ income.source }}</h5>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                                <h6 class="mb-0">{{ income.total_amount }}</h6>
+                                <span class="text-muted">{{currency|slice:":3"}}</span>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

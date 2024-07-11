@@ -1,0 +1,44 @@
+{% extends "spend_smart/base.html" %} {% load static %} {% block title %}User Preferences{% endblock title %} {% block page %}
+
+<h5 class="my-md-3 my-lg-3 my-2">
+    <span class="text-muted fw-light"> Home </span>
+    / My Incomes
+</h5>
+
+{% endblock page %} {% block content %}
+<div class="card">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <h4 class="card-header display-6 display-md-5 display-lg-4 mb-3 mb-md-0">Incomes List</h4>
+        <a href="{% url 'add_income' %}" class="btn rounded-pill btn-outline-secondary me-3"><span class="tf-icons bx bx-add-to-queue me-1"></span>Add Income</a>
+    </div>
+
+    <div class="m-3">
+        <table id="example" class="table table-striped nowrap" style="width: 100%; table-layout: auto">
+            <thead>
+                <tr>
+                    <th style="text-align: left; max-width: 200px; /* Adjust the max-width as needed */ white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><strong>Amount ({{currency}})</strong></th>
+                    <th><strong>Source</strong></th>
+                    <th><strong>Description</strong></th>
+                    <th><strong>Date</strong></th>
+                    <th><strong>Actions</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for income in incomes %}
+                <tr>
+                    <td style="text-align: left; max-width: 200px; /* Adjust the max-width as needed */ white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{income.amount|default_if_none:""}}</td>
+                    <td>{{income.source|default_if_none:""}}</td>
+                    <td>{{income.description|default_if_none:""}}</td>
+                    <td>{{income.date|default_if_none:""}}</td>
+                    <td>
+                        <a href="{% url 'edit_income' income.pk %}" class="btn btn-outline-primary btn-sm btn-icon item-edit"><i class="bx bxs-edit"></i></a>
+                        <a href="{% url 'delete_income' income.pk %}" class="btn btn-outline-danger btn-sm btn-icon item-edit"><i class="bx bxs-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}
