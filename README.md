@@ -18,4 +18,4 @@ Welcome to our Expense and Income Tracker, a comprehensive solution designed to 
 
 ## Dashboard Screenshot
 
-![Screenshots](Dashboard.png)
+![Screenshots](Screenshots/Dashboard.png)
