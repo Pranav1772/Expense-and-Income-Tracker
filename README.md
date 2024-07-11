@@ -11,3 +11,6 @@ Welcome to our Expense and Income Tracker, a comprehensive solution designed to 
 - **Dashboard Overview:** Get a quick glance at your total expenses for the current month right on the dashboard.
 - **Profile Management:** Easily manage your user profile with options to edit and delete existing income and expense entries.
 - **Snet Admin Template:** Utilized the Snet admin template, which facilitated faster frontend development with its predefined user elements.
+
+##Note-
+**SpendSmart** is already used by other company if you want to use this project then use different name
